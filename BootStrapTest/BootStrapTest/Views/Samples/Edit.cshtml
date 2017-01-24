@@ -1,0 +1,104 @@
+﻿@model BootStrapTest.Models.SampleViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Sample</legend>
+
+        @Html.HiddenFor(model => model.Id)
+        <div class="form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BirthDay)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.BirthDay, new { @type = "date" })
+                @Html.ValidationMessageFor(model => model.BirthDay)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Sex)
+            </div>
+            @*<div class="editor-field">
+                @Html.EditorFor(model => model.Sex)
+                @Html.ValidationMessageFor(model => model.Sex)
+            </div>*@
+
+            <div class="editor-field">
+                @Html.RadioButtonFor(
+                model => model.Sex,
+                new SelectList(Model.SexOptions, "Value", "DisplayText"),
+                new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
+            </div>
+
+
+
+            @*<div class="editor-field">
+                @Html.RadioButtonListFor(
+         model => model.SexOptions,
+                @<label for="@item.Id">@item.Name</label>)
+            </div>*@
+
+        </div>
+
+        <div class="form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Country)
+            </div>
+            @*<div class="editor-field">
+                @Html.EditorFor(model => model.Country)
+                @Html.ValidationMessageFor(model => model.Country)
+            </div>*@
+
+            <div class="editor-field">
+                @Html.DropDownListFor(
+                    model => model.Country,
+                    new SelectList(Model.CountryOptions, "Value", "DisplayText"),
+                    "国を選択",
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.IsDelete)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.IsDelete)
+                @Html.ValidationMessageFor(model => model.IsDelete)
+            </div>
+        </div>
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+</fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
