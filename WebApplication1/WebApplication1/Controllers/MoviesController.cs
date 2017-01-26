@@ -20,8 +20,15 @@ namespace WebApplication1.Controllers
         //    return View(db.Movies.ToList());
         //}
 
-        public ActionResult Index(string movieGenre,string searchString)
+        public ActionResult Index(string searchString, string movieGenre, string movieDirector)
         {
+            //監督
+            var DirectorList = new List<string>();
+            var DirectorQry = from d in db.Movies orderby d.Director select d.Director;
+            DirectorList.AddRange(DirectorQry.Distinct());
+            ViewBag.movieDirector = new SelectList(DirectorList);
+
+            //ジャンル
             var GenreList = new List<string>();
             var GenreQry = from d in db.Movies orderby d.Genre select d.Genre;
             GenreList.AddRange(GenreQry.Distinct());
@@ -35,6 +42,10 @@ namespace WebApplication1.Controllers
             if(!string.IsNullOrEmpty(movieGenre))
             {
                 movies = movies.Where(x => x.Genre == movieGenre);
+            }
+            if (!string.IsNullOrEmpty(movieDirector))
+            {
+                movies = movies.Where(x => x.Director == movieDirector);
             }
 
             return View(movies);
