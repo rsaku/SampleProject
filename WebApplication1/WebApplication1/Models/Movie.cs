@@ -9,6 +9,7 @@ namespace WebApplication1.Models
     {
         public int ID { get; set; }
 
+        [StringLength(60,MinimumLength=1),Required]
         [Display(Name="タイトル")]
         public string Title { get; set; }
 
@@ -24,6 +25,7 @@ namespace WebApplication1.Models
 
         [Display(Name = "価格")]
         [DataType(DataType.Currency)]
+        [Range(1,999999,ErrorMessage="{0}は{1}～{2}の間で入力してください。")]
         public decimal Price { get; set; }
     }
 
