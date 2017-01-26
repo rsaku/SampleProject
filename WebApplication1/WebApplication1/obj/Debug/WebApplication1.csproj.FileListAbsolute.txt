@@ -146,3 +146,6 @@ C:\Work\Sample01\WebApplication1\WebApplication1\bin\ja\Microsoft.Owin.Security.
 C:\Work\Sample01\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
 C:\Work\Sample01\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 C:\Work\Sample01\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Work\Sample01\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.initial.resources
+C:\Work\Sample01\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.GenerateResource.Cache
+C:\Work\Sample01\WebApplication1\WebApplication1\obj\Debug\WebApplication1.Migrations.Director.resources
