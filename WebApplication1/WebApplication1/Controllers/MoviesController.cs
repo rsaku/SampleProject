@@ -64,7 +64,8 @@ namespace WebApplication1.Controllers
             return "<h3>From [HttpPost]Index: " + searchString + "</h3>";
         }
 
-        //[ChildActionOnly]
+
+//    @*部分ビュー用*@
         public ActionResult MovieList(string searchString, string movieGenre, string movieDirector)
         {
             var movies = from m in db.Movies select m;
@@ -83,6 +84,7 @@ namespace WebApplication1.Controllers
             
             return PartialView("_MovieList", movies);
         }
+
         // GET: Movies/Details/5
         public ActionResult Details(int? id)
         {

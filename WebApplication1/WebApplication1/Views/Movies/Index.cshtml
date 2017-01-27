@@ -8,13 +8,16 @@
 <p>
     @Html.ActionLink("新規追加", "Create")
 
+    @*アコーディオン用*@
     <a class="btn btn-primary btn-lg btn-block" data-toggle="collapse" href="#acd-01">検索パネル</a>
     
+    @*部分ビュー用*@
     @*@using (Html.BeginForm("Index", "Movies", FormMethod.Get))*@
     @using (Ajax.BeginForm("MovieList", "Movies",
         new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "result" }))
     {
-        <div class="collapse" id="acd-01">
+        @*アコーディオン用*@
+       <div class="collapse" id="acd-01">
             <div class="well">
 
                 <div>
@@ -29,6 +32,7 @@
     }
 </p>
 
+@*部分ビュー用*@
 <div id="result">
 @*以下は最初の表示時だけ使用される*@
 @Html.Partial("_MovieList", Model)
