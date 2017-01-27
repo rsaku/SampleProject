@@ -9,8 +9,10 @@
     @Html.ActionLink("新規追加", "Create")
 
     <a class="btn btn-primary btn-lg btn-block" data-toggle="collapse" href="#acd-01">検索パネル</a>
-
-    @using (Html.BeginForm("Index", "Movies", FormMethod.Get))
+    
+    @*@using (Html.BeginForm("Index", "Movies", FormMethod.Get))*@
+    @using (Ajax.BeginForm("MovieList", "Movies",
+        new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "result" }))
     {
         <div class="collapse" id="acd-01">
             <div class="well">
@@ -27,9 +29,14 @@
     }
 </p>
 
+<div id="result">
+@*以下は最初の表示時だけ使用される*@
+@Html.Partial("_MovieList", Model)
+</div>
 
+@*@Html.Partial("_MovieList", Model)*@
 
-<table class="table">
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -73,4 +80,4 @@
         </td>
     </tr>
 }
-</table>
+</table>*@

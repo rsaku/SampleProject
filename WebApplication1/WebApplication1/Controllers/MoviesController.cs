@@ -64,6 +64,25 @@ namespace WebApplication1.Controllers
             return "<h3>From [HttpPost]Index: " + searchString + "</h3>";
         }
 
+        //[ChildActionOnly]
+        public ActionResult MovieList(string searchString, string movieGenre, string movieDirector)
+        {
+            var movies = from m in db.Movies select m;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.Title.Contains(searchString));
+            }
+            if (!string.IsNullOrEmpty(movieGenre))
+            {
+                movies = movies.Where(x => x.Genre == movieGenre);
+            }
+            if (!string.IsNullOrEmpty(movieDirector))
+            {
+                movies = movies.Where(x => x.Director == movieDirector);
+            }
+            
+            return PartialView("_MovieList", movies);
+        }
         // GET: Movies/Details/5
         public ActionResult Details(int? id)
         {
