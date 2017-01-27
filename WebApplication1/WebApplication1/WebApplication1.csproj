@@ -42,7 +42,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -178,10 +181,15 @@
     <Compile Include="Migrations\201701260559407_DataAnnotations.Designer.cs">
       <DependentUpon>201701260559407_DataAnnotations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701260739152_DataAnnotations1.cs" />
+    <Compile Include="Migrations\201701260739152_DataAnnotations1.Designer.cs">
+      <DependentUpon>201701260739152_DataAnnotations1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\mGenre.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -256,7 +264,9 @@
     <Content Include="Views\Movies\Edit.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -273,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701260559407_DataAnnotations.resx">
       <DependentUpon>201701260559407_DataAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701260739152_DataAnnotations1.resx">
+      <DependentUpon>201701260739152_DataAnnotations1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

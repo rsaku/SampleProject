@@ -34,6 +34,12 @@ namespace WebApplication1.Controllers
             GenreList.AddRange(GenreQry.Distinct());
             ViewBag.movieGenre = new SelectList(GenreList);
 
+            //var GenreList = new List<string>();
+            //var GenreQry = from d in db.mGenres orderby d.Genre select d.Genre;
+            //GenreList.AddRange(GenreQry.Distinct());
+            //ViewBag.movieGenre = new SelectList(GenreList);
+
+            
             var movies = from m in db.Movies select m;
             if (!String.IsNullOrEmpty(searchString))
             {

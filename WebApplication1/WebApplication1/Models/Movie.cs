@@ -32,5 +32,6 @@ namespace WebApplication1.Models
     public class MovieDBContext:DbContext
     {
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<mGenre> mGenres { get; set; }
     }
 }

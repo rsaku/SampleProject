@@ -3,22 +3,32 @@
 @{
     ViewBag.Title = "Index";
 }
-
 <h2>Index</h2>
 
 <p>
     @Html.ActionLink("新規追加", "Create")
-    
-    @using(Html.BeginForm("Index","Movies",FormMethod.Get))
+
+    <a class="btn btn-primary btn-lg btn-block" data-toggle="collapse" href="#acd-01">検索パネル</a>
+
+    @using (Html.BeginForm("Index", "Movies", FormMethod.Get))
     {
-        <div>
-            タイトル：@Html.TextBox("SearchString")
-            ジャンル：@Html.DropDownList("movieGenre","All") 
-            監督：@Html.DropDownList("movieDirector", "All")
-            <input type="submit" value="検索" />
+        <div class="collapse" id="acd-01">
+            <div class="well">
+
+                <div>
+                    タイトル：@Html.TextBox("SearchString")
+                    ジャンル：@Html.DropDownList("movieGenre", "All")
+                    監督：@Html.DropDownList("movieDirector", "All")
+                    <input type="submit" value="検索" />
+                </div>
+
+            </div>
         </div>
     }
 </p>
+
+
+
 <table class="table">
     <tr>
         <th>
@@ -63,5 +73,4 @@
         </td>
     </tr>
 }
-
 </table>
